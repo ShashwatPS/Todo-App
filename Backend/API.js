@@ -58,8 +58,8 @@ app.put('/todos/:id', async (req, res) => {
 
 app.delete('/todos/:id', async (req, res) => {
     try {
-        const deletedTodo = await Todo.findByIdAndDelete(req.params.id);
-        if (!deletedTodo) {
+        const deletedTodo = await Todo.deleteOne({ id: parseInt(req.params.id) })
+        if (deletedTodo.deletedCount===0) {
             res.status(404).send();
         } else {
             res.status(200).send();
