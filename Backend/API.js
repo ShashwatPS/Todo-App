@@ -37,8 +37,14 @@ app.post('/todos',  async (req, res) => {
         title: req.body.title,
         description: req.body.description
     };
+    try{
     const newSave = new Todo(newTodo);
     await newSave.save();
+    res.sendStatus(200);
+    }
+    catch{
+    res.sendStatus(500);
+    }
 });
 
 app.put('/todos/:id', async (req, res) => {
@@ -51,14 +57,17 @@ app.put('/todos/:id', async (req, res) => {
 });
 
 app.delete('/todos/:id', async (req, res) => {
-    const deletedTodo = await Todo.findByIdAndDelete(req.params.id);
-    if (!deletedTodo) {
-        res.status(404).send();
-    } else {
-        res.status(200).send();
+    try {
+        const deletedTodo = await Todo.findByIdAndDelete(req.params.id);
+        if (!deletedTodo) {
+            res.status(404).send();
+        } else {
+            res.status(200).send();
+        }
+    } catch (error) {
+        res.status(500).send({ error: "Error deleting todo", message: error.message });
     }
 });
-
 app.use((req, res, next) => {
     res.status(404).send();
 });
