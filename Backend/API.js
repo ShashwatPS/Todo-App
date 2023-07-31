@@ -19,15 +19,15 @@ mongoose.connect('mongodb+srv://ShashwatPS:s@cluster0.1alkv6j.mongodb.net/TodoAp
 
 app.get('/todos', async (req, res) => {
     const Todos = await Todo.find({});
-    res.json({courses});
+    res.json({Todos});
 });
 
-app.get('/todos/:id', (req, res) => {
-    const todo = todos.find(t => t.id === parseInt(req.params.id));
+app.get('/todos/:id', async(req, res) => {
+    const todo = await Todo.findById(req.params.courseId);
     if (!todo) {
         res.status(404).send();
     } else {
-        res.json(todo);
+        res.json({todo});
     }
 });
 
@@ -37,27 +37,24 @@ app.post('/todos', (req, res) => {
         title: req.body.title,
         description: req.body.description
     };
-    todos.push(newTodo);
-    res.status(201).json(newTodo);
+    const newSave = new Todo(newTodo);
+    newSave.save();
 });
 
-app.put('/todos/:id', (req, res) => {
-    const todoIndex = todos.findIndex(t => t.id === parseInt(req.params.id));
-    if (todoIndex === -1) {
+app.put('/todos/:id', async (req, res) => {
+    const todo = await Todo.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (todo) {
         res.status(404).send();
     } else {
-        todos[todoIndex].title = req.body.title;
-        todos[todoIndex].description = req.body.description;
-        res.json(todos[todoIndex]);
+        res.json({message: "Course Updated Successfully"})
     }
 });
 
-app.delete('/todos/:id', (req, res) => {
-    const todoIndex = todos.findIndex(t => t.id === parseInt(req.params.id));
-    if (todoIndex === -1) {
+app.delete('/todos/:id', async (req, res) => {
+    const deletedTodo = await Todo.findByIdAndDelete(req.params.id);
+    if (!deletedTodo) {
         res.status(404).send();
     } else {
-        todos.splice(todoIndex, 1);
         res.status(200).send();
     }
 });
