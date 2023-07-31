@@ -1,15 +1,25 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const mongoose = require('mongoose');
 const cors = require("cors");
 
 app.use(bodyParser.json());
 app.use(cors())
 
-let todos = [];
+const todoSchema= new mongoose.Schema({
+    id: Number,
+    title: String,
+    description: String
+});
 
-app.get('/todos', (req, res) => {
-    res.json(todos);
+const Todo = mongoose.model('Todo', todoSchema);
+
+mongoose.connect('mongodb+srv://ShashwatPS:s@cluster0.1alkv6j.mongodb.net/TodoApp', { useNewUrlParser: true, useUnifiedTopology: true});
+
+app.get('/todos', async (req, res) => {
+    const Todos = await Todo.find({});
+    res.json({courses});
 });
 
 app.get('/todos/:id', (req, res) => {
