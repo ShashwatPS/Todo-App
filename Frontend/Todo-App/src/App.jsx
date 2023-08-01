@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import {
-  AppBar,
-  Button,
-  FormControlLabel,
-  Switch,
-  TextField,
-  Typography,
+    Button, TextField,
+    Typography,
 } from "@mui/material";
+import Appbar from "./AppBar.jsx";
 
 function App() {
   const [Todo, SetTodo] = useState([]);
-  const [Title, setTitle] = useState("");
-  const [Description, setDescription] = useState("");
+    const [Title, setTitle] = useState("");
+    const [Description, setDescription] = useState("");
 
   const fetchTodos = ()=>{
       fetch("http://localhost:3000/todos", {
@@ -36,29 +33,7 @@ function App() {
 
   return (
     <>
-      <AppBar position="sticky">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <Typography
-            variant={"h6"}
-            style={{
-              marginLeft: "10px",
-            }}
-          >
-            TODO APP
-          </Typography>
-          <FormControlLabel
-            value="end"
-            control={<Switch color="default" />}
-            label="THEME"
-            labelPlacement="end"
-          />
-        </div>
-      </AppBar>
+      <Appbar></Appbar>
       <div
         style={{
           display: "flex",
@@ -68,59 +43,59 @@ function App() {
           marginTop: "350px",
         }}
       >
-        <div
-          style={{
-            marginBottom: "35px",
-          }}
-        >
-          <TextField
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-            style={{
-              marginRight: "50px",
-            }}
-            id="title"
-            label="Title"
-            variant="standard"
-          />
-          <TextField
-            onChange={(e) => {
-              setDescription(e.target.value);
-            }}
-            style={{
-              marginRight: "35px",
-            }}
-            id="description"
-            label="Description"
-            variant="standard"
-          />
-          <Button
-            onClick={() => {
-              function callback2(data) {
-                  fetchTodos();
-                console.log(data);
-              }
-
-              function callback1(res) {
-                res.json().then(callback2);
-              }
-
-              fetch("http://localhost:3000/todos", {
-                method: "POST",
-                body: JSON.stringify({
-                  title: Title,
-                  description: Description,
-                }),
-                headers: {
-                  "Content-type": "application/json",
-                },
-              }).then(callback1);
-            }}
+          <div
+              style={{
+                  marginBottom: "35px",
+              }}
           >
-            Add Todo
-          </Button>
-        </div>
+              <TextField
+                  onChange={(e) => {
+                      setTitle(e.target.value);
+                  }}
+                  style={{
+                      marginRight: "50px",
+                  }}
+                  id="title"
+                  label="Title"
+                  variant="standard"
+              />
+              <TextField
+                  onChange={(e) => {
+                      setDescription(e.target.value);
+                  }}
+                  style={{
+                      marginRight: "35px",
+                  }}
+                  id="description"
+                  label="Description"
+                  variant="standard"
+              />
+              <Button
+                  onClick={() => {
+                      function callback2(data) {
+                          fetchTodos();
+                          console.log(data);
+                      }
+
+                      function callback1(res) {
+                          res.json().then(callback2);
+                      }
+
+                      fetch("http://localhost:3000/todos", {
+                          method: "POST",
+                          body: JSON.stringify({
+                              title: Title,
+                              description: Description,
+                          }),
+                          headers: {
+                              "Content-type": "application/json",
+                          },
+                      }).then(callback1);
+                  }}
+              >
+                  Add Todo
+              </Button>
+          </div>
         {Todo.map((data) => {
           return (
             <div
