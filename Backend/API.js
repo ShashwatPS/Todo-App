@@ -15,7 +15,7 @@ const todoSchema = new mongoose.Schema({
 
 const Todo = mongoose.model("Todo", todoSchema);
 
-mongoose.connect("Your mongoDb string", {
+mongoose.connect("mongodb+srv://ShashwatPS:s@cluster0.1alkv6j.mongodb.net/Todos", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   dbName: "Todos",

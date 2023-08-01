@@ -14,6 +14,16 @@ function App() {
   const [Title, setTitle] = useState("");
   const [Description, setDescription] = useState("");
 
+  const fetchTodos = ()=>{
+      fetch("http://localhost:3000/todos", {
+          method: "GET",
+      }).then((res) => {
+          res.json().then((data) => {
+              SetTodo(data.Todos);
+          });
+      });
+  }
+
   useEffect(() => {
     fetch("http://localhost:3000/todos", {
       method: "GET",
@@ -88,6 +98,7 @@ function App() {
           <Button
             onClick={() => {
               function callback2(data) {
+                  fetchTodos();
                 console.log(data);
               }
 
@@ -142,6 +153,7 @@ function App() {
                     console.log(data);
                   }
                   function callback1(res) {
+                      fetchTodos();
                     res.json().then(callback2);
                   }
                   fetch(`http://localhost:3000/todos/${data.id}`, {
