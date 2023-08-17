@@ -1,4 +1,4 @@
-import {AppBar, FormControlLabel, Switch, Typography} from "@mui/material";
+import {AppBar, Typography} from "@mui/material";
 
 function Appbar(){
     return(
