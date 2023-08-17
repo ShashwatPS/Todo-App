@@ -18,12 +18,6 @@ function Appbar(){
                     >
                         TODO APP
                     </Typography>
-                    <FormControlLabel
-                        value="end"
-                        control={<Switch color="default" />}
-                        label="THEME"
-                        labelPlacement="end"
-                    />
                 </div>
             </AppBar>
         </div>
