@@ -18,7 +18,10 @@ export function LandingPage(){
                 </Grid>
                 <Grid item lg={6} className={"griditem"}>
                     <div className={"containerRight"}>
-                    <img src={"https://png.pngtree.com/png-clipart/20220108/ourmid/pngtree-lets-do-it-text-effect-sticker-png-png-image_225466.png"} alt={"Todo Picture"}/>
+                        <img src={"./Images/LetsDoIt"} alt={"Lets Do it"}/>
+                    </div>
+                    <div>
+                        <img src={""} alt={"Now or Never"}/>
                     </div>
                 </Grid>
             </Grid>
