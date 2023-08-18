@@ -18,10 +18,10 @@ export function LandingPage(){
                 </Grid>
                 <Grid item lg={6} className={"griditem"}>
                     <div className={"containerRight"}>
-                        <img src={"./Images/LetsDoIt"} alt={"Lets Do it"}/>
+                        <img src={"Images/LetsDoIt.png"} alt={"Lets Do it"}/>
                     </div>
                     <div>
-                        <img src={""} alt={"Now or Never"}/>
+                        <img src={"Images/NowOrNever.png"} alt={"Now or Never"}/>
                     </div>
                 </Grid>
             </Grid>
