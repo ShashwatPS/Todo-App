@@ -1,8 +1,12 @@
 .containerLeft{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 96vh;
     align-items: center;
     justify-content: center;
 
+}
+
+.griditem{
+    background-color: #454545;
 }

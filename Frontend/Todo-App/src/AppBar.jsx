@@ -8,17 +8,15 @@ function Appbar(){
                     sx={{
                 color: "white",
                 bgcolor: "black",
-                height: "29px",
-            }}>
+                height: "38px",
+            }} className={"bar"}>
                 <div
                     style={{
                         display: "flex",
                         justifyContent: "space-between",
                     }}
                 >
-                    <div style={{
-                        marginTop: "4px"
-                    }}>
+                    <div className={"title"}>
                         TODO APP
                     </div>
                 </div>
