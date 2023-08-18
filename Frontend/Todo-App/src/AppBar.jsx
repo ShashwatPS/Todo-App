@@ -1,23 +1,22 @@
 import {AppBar, Typography} from "@mui/material";
+import "./AppBarCSS.css"
 
 function Appbar(){
     return(
         <div>
-            <AppBar position="sticky">
+            <AppBar position="sticky" sx={{
+                color: "white",
+                bgcolor: "black",
+            }}>
                 <div
                     style={{
                         display: "flex",
                         justifyContent: "space-between",
                     }}
                 >
-                    <Typography
-                        variant={"h6"}
-                        style={{
-                            marginLeft: "10px",
-                        }}
-                    >
+                    <div>
                         TODO APP
-                    </Typography>
+                    </div>
                 </div>
             </AppBar>
         </div>

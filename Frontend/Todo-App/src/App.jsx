@@ -3,6 +3,7 @@ import Appbar from "./AppBar.jsx";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddTodos from "./AddTodos.jsx";
 import Todos from "./Todos.jsx";
+import LandingPage from "./LandingPage.jsx";
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
                 <Routes>
                     <Route path="/addtodo" element={<AddTodos />} />
                     <Route path="/showtodo" element={<Todos />} />
-                    <Route path="/" element={}
+                    <Route path="/" element={<LandingPage/>}/>
                 </Routes>
             </Router>
         </>
