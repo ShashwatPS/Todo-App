@@ -1,4 +1,4 @@
-import {AppBar, Typography} from "@mui/material";
+import {AppBar, Button} from "@mui/material";
 import "./AppBarCSS.css"
 
 function Appbar(){
@@ -16,8 +16,26 @@ function Appbar(){
                         justifyContent: "space-between",
                     }}
                 >
-                    <div className={"title"}>
+                    <div className={"title"}
+                    onClick={()=>{
+                        window.location="/";
+                    }}
+                    >
                         TODO APP
+                    </div>
+                    <div style={{
+                        display: "flex",
+                    }}>
+                    <Button variant="text" sx={{color: "white"}}
+                        onClick={() => {
+                        window.location = "/showtodo";
+                    }}
+                    >SHOW</Button>
+                    <Button variant="text" sx={{color: "white"}}
+                            onClick={() => {
+                                window.location = "/addtodo";
+                            }}
+                    >ADD</Button>
                     </div>
                 </div>
             </AppBar>
