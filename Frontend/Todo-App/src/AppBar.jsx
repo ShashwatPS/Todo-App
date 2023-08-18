@@ -4,9 +4,11 @@ import "./AppBarCSS.css"
 function Appbar(){
     return(
         <div>
-            <AppBar position="sticky" sx={{
+            <AppBar position="sticky"
+                    sx={{
                 color: "white",
                 bgcolor: "black",
+                height: "29px",
             }}>
                 <div
                     style={{
@@ -14,7 +16,9 @@ function Appbar(){
                         justifyContent: "space-between",
                     }}
                 >
-                    <div>
+                    <div style={{
+                        marginTop: "4px"
+                    }}>
                         TODO APP
                     </div>
                 </div>
