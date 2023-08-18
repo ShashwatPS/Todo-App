@@ -12,6 +12,7 @@ function App() {
                 <Routes>
                     <Route path="/addtodo" element={<AddTodos />} />
                     <Route path="/showtodo" element={<Todos />} />
+                    <Route path="/" element={}
                 </Routes>
             </Router>
         </>
