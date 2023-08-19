@@ -1,5 +1,6 @@
 import {Grid} from "@mui/material";
-import "./LandingPageCSS.css"
+import "./CSS/LandingPageCSS.css"
+import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 export function LandingPage(){
     return (
         <div>
@@ -18,10 +19,10 @@ export function LandingPage(){
                 </Grid>
                 <Grid item lg={6} className={"griditem"}>
                     <div className={"containerRight"}>
-                        <img src={"Images/LetsDoIt.png"} alt={"Lets Do it"}/>
-                    </div>
-                    <div>
-                        <img src={"Images/NowOrNever.png"} alt={"Now or Never"}/>
+                        <TextSnippetIcon style={{
+                            fontSize: 600,
+                            color: "white",
+                        }}/>
                     </div>
                 </Grid>
             </Grid>

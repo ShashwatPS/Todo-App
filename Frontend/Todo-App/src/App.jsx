@@ -1,4 +1,4 @@
-import "./App.css";
+import "./CSS/App.css";
 import Appbar from "./AppBar.jsx";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddTodos from "./AddTodos.jsx";

@@ -1,0 +1,19 @@
+.containerLeft{
+    display: flex;
+    flex-direction: column;
+    height: 96vh;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.griditem{
+    background-color: #454545;
+}
+
+.containerRight{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 96vh;
+}

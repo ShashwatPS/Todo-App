@@ -1,5 +1,5 @@
 import {AppBar, Button} from "@mui/material";
-import "./AppBarCSS.css"
+import "./CSS/AppBarCSS.css"
 
 function Appbar(){
     return(
