@@ -7,13 +7,12 @@ export function LandingPage(){
             <Grid container spacing={2}>
                 <Grid item lg={6}>
                     <div className={"containerLeft"}>
-                    <div>
-                        TODO APP
+                    <div className={"text"}>
+                        WELCOME
                     </div>
-                    <div>
+                    <div className={"description"}>
                         Stay organized and efficient with our sleek ToDo App. Easily manage tasks,
                         set due dates, and track progress. Experience productivity like never before.
-                        Try it now!
                     </div>
                     </div>
                 </Grid>

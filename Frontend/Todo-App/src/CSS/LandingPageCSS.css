@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
 .containerLeft{
     display: flex;
     flex-direction: column;
     height: 96vh;
-    align-items: center;
     justify-content: center;
 
 }
@@ -16,4 +18,19 @@
     align-items: center;
     justify-content: center;
     height: 96vh;
+}
+
+.text{
+    text-align: left;
+    font-family: 'Oswald', sans-serif;
+    font-size: 75px;
+    padding-left: 30px;
+}
+
+.description{
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 30px;
+    padding-left: 30px;
+    padding-right: 10px;
+    font-weight: bold;
 }
