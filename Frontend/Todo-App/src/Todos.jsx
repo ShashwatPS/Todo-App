@@ -72,7 +72,8 @@ function Todos(){
                             Delete
                         </Button>
         </div>)})}
-            </div>)}
+            </div>)
+}
 
 
 export default Todos;

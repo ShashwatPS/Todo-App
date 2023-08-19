@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
-import {Button, TextField} from "@mui/material";
+import {TextField} from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
 
 function AddTodos() {
     const [Todo, SetTodo] = useState([]);
@@ -43,11 +44,12 @@ function AddTodos() {
                     }}
                 >
                     <TextField
+                        style={{
+                        marginRight: "50px",
+                    }}
+                        InputLabelProps={{className:" text"}}
                         onChange={(e) => {
                             setTitle(e.target.value);
-                        }}
-                        style={{
-                            marginRight: "50px",
                         }}
                         id="title"
                         label="Title"
@@ -64,7 +66,9 @@ function AddTodos() {
                         label="Description"
                         variant="standard"
                     />
-                    <Button
+                    <AddIcon style={{
+                        paddingTop: "18px",
+                    }}
                         onClick={() => {
                             function callback2(data) {
                                 fetchTodos();
@@ -88,7 +92,7 @@ function AddTodos() {
                         }}
                     >
                         Add Todo
-                    </Button>
+                    </AddIcon>
                 </div>
             </div>
         </>
