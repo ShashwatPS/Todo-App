@@ -1,6 +1,6 @@
-import {Button, Typography} from "@mui/material";
+import {Button, Card, CardActions, CardContent} from "@mui/material";
 import {useEffect, useState} from "react";
-
+import "./CSS/Todos.css";
 function Todos(){
     const [Todo, SetTodo] = useState([]);
     const fetchTodos = ()=>{
@@ -26,54 +26,42 @@ function Todos(){
 
     return(
         <div>
-            {Todo.map((data) => {
-                return (
-                    <div
-                        key={data.id}
-                        style={{
-                            display: "flex",
+            {Todo.map((data) => (
+                <Card key={data.id} sx={{
+                    bgcolor: "#454545",
+                    borderRadius: "0",
+                    borderBottom: "1px solid white",
+                }}>
+                    <CardContent>
+                        <div className={"titlecard"}>
+                            {data.title}
+                        </div>
+                        <br/>
+                        <div className={"descriptioncard"}>
+                            {data.description}
+                        </div>
+                    </CardContent>
+                    <CardActions>
+                        <Button sx={{
+                            color: "white",
                         }}
-                    >
-                        <div
-                            style={{
-                                paddingRight: "110px",
-                                marginRight: "0px",
-                            }}
-                        >
-                            <Typography variant={"h6"}>Title - {data.title}</Typography>
-                        </div>
-                        <div
-                            style={{
-                                paddingLeft: "0px",
-                                marginRight: "50px",
-                            }}
-                        >
-                            <Typography variant={"h6"}>
-                                Description - {data.description}
-                            </Typography>
-                        </div>
-                        <Button
+                            size="small"
                             onClick={() => {
-                                function callback2(data) {
-                                    console.log(data);
-                                }
-                                function callback1(res) {
-                                    fetchTodos();
-                                    res.json().then(callback2);
-                                }
                                 fetch(`http://localhost:3000/todos/${data.id}`, {
                                     method: "DELETE",
                                     headers: {
                                         "Content-type": "application/json",
                                     },
-                                }).then(callback1);
+                                }).then(() => fetchTodos());
                             }}
                         >
-                            Delete
+                            DELETE
                         </Button>
-        </div>)})}
-            </div>)
-}
+                    </CardActions>
+                </Card>
+            ))}
+        </div>
+    )}
 
 
 export default Todos;
